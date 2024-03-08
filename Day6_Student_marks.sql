@@ -12,6 +12,6 @@ insert into student_tests values(104, 40);
 insert into student_tests values(105, 50);
 
 ---
-select test_id, marks,lag(marks)over(order by test_id) as lg
+select test_id, marks,lag(marks,1,1)over(order by test_id) as lg
 from student_tests
-qualify marks>lg or lg is null;
+qualify marks>lg;
